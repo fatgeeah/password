@@ -1,0 +1,28 @@
+What is working...?
+
+- Home directory works
+
+SIGNUP(Pops up + Closes )
+- Validation(missing username , gmail , password are not the same) -- messsage pop ups(works , it closes)
+- Show message(username taken , gmail taken , user created)
+- Works user gets registered
+
+LOGIN(Pops up + Closes)
+- Validation(missing username , misssing password )
+- Email Validation(get 6 digit code to login) , this works(recieves message is code is wrong)
+- Works as registered userb gets login
+
+LOGOUT
+- Works user gets logout
+
+PASSWORD 
+- Passwords gets saved into database 
+- Passwords are encrypted
+
+Doesn't work
+- Passwords getting decrypted and show on website( it works once but shows error later on)
+
+What i want to do...?
+- Maybe change colour scheme
+- Add some icons 
+- Create a logo 
