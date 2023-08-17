@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Django Password Manager</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{% static 'css/style600.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style1000.css' %}">
     <link rel="icon" href="{% static 'images/img6.png' %}">
     <script src="{% static 'main.js' %}" defer></script>
 </head>
@@ -134,12 +134,12 @@
     
 {% for password in passwords %}
     <div class="card">
-        <div class="actions">&nbsp;Actions
-            <a href="javascript:;" onclick="document.getElementById('delete-btn').click();" class="action-item">Delete</a>
+        <div class="actions">&nbsp;Actions <i class="fa fa-arrow-down" aria-hidden="true"></i>
+            <a href="javascript:;" onclick="document.getElementById('delete-btn{{password.id}}').click();" class="action-item">Delete</a>
             <form hidden="true" action="." method="POST">
                 {% csrf_token %}
                 <input type="text" hidden="true" name="password-id" value="{{password.id}}">
-                <input type="submit" id="delete-btn" name="delete">
+                <input type="submit" id="delete-btn{{password.id}}" name="delete">
             </form>
         </div>    
         <img width="50" height="50" src="{{password.logo}}" alt="">
@@ -147,14 +147,15 @@
 
             <input type="emai" name="email" value="{{password.email}}"><i class="fas fa-copy copy" title="copy to clipboard"></i>
             <input type="password" name="username" value="{{password.password}}"><i class="fas fa-copy copy" title="copy to clipboard"></i>
-    </div> 
+            <br>
+        </div> 
     {% endfor %}
 </div>  
 
 
 
 <footer>
-    <p href="">Link to the project <a href="https://github.com/fatgeeah/password"> https://github.com/fatgeeah/password <img width="80"  height="70" src="{% static 'images/github2.gif' %}"></p>
+    <p href="">Link to the project <a href="https://github.com/fatgeeah/password/tree/master"> https://github.com/fatgeeah/password <img width="80"  height="70" src="{% static 'images/github2.gif' %}"></p>
 </footer>
 
 </body>

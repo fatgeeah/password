@@ -16,10 +16,27 @@ if (modalWrapper) {
 }
 
 const copies = document.querySelectorAll(".copy");
-copies.forEach(copy => {
-    copy.onclick = () => {
-        let elementToCopy = copy.previousElementSibling;
-        elementToCopy.select();
+copies.forEach(copy =>{
+    copy.onclick = () =>{
+        let elemntToCopy = copy.previousElementSibling;
+        elemntToCopy.select();
         document.execCommand("copy");
     }
 })
+
+const actions = document.querySelectorAll(".actions");
+if (actions){
+    actions.forEach(action =>{
+        action.onclick = () =>{
+            const links = action.querySelectorAll("a");
+            links.forEach(link =>{
+                link.style.display = "flex";
+            })
+            setTimeout(function(){
+                links.forEach(link =>{
+                    link.style.display = "none";
+                })}
+            , 3000)
+        }
+    })
+}

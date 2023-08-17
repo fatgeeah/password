@@ -137,16 +137,16 @@ def index(request):
             messages.success(request, msg)
             return HttpResponseRedirect(request.path)
 
-    # context = {}
-    # if request.user.is_authenticated:
-    #     passwords = Password.objects.all().filter(user=request.user)
-    #     for password in passwords:
-    #         password.email = fernet.decrypt(password.email.encode()).decode()
-    #         password.password = fernet.decrypt(password.password.encode()).decode()
-    #     context = {
-    #         "passwords":passwords,
-    #     }   
-    # return render(request, "index.html", context)
+    context = {}
+    if request.user.is_authenticated:
+        passwords = Password.objects.all().filter(user=request.user)
+        for password in passwords:
+            password.email = fernet.decrypt(password.email.encode()).decode()
+            password.password = fernet.decrypt(password.password.encode()).decode()
+        context = {
+            "passwords":passwords,
+        }   
+    return render(request, "index.html", context)
         
     # passwords = Password.objects.all().filter(user=request.user)
     # for password in passwords:
